@@ -1,9 +1,9 @@
 <template>
     <header class="flex justify-between items-center p-8 mx-auto max-w-[1300px]">
-        <div class="flex items-center gap-4">
+        <a href="/" class="flex items-center gap-4">
             <img src="Avatar.png" alt="" class="w-8 h-8">
             <h1 class="font-semibold text-xl text-dark tracking-tight">Baptist Hecht Designs</h1>
-        </div>
+        </a>
         <div>
             <ul class="hidden md:flex gap-10 font-medium text-dark">
                 <li><a href="/components">Components</a></li>

@@ -11,7 +11,7 @@
         <div class="mt-16 flex justify-center">
           <p class="relative rounded-full px-4 py-1.5 text-sm leading-6 text-darker ring-1 ring-inset ring-gradient1">
             <span class="hidden md:inline">Supporting Vue, React, Angular and vanilla HTML, using TailwindCSS.</span>
-            <a href="#" class="font-semibold bg-gradient-to-r from-gradient2 to-gradient1 bg-clip-text text-transparent w-min"><span class="absolute inset-0" aria-hidden="true" /> Read our docs <span aria-hidden="true">&rarr;</span></a>
+            <a href="/docs" class="font-semibold bg-gradient-to-r from-gradient2 to-gradient1 bg-clip-text text-transparent w-min"><span class="absolute inset-0" aria-hidden="true" /> Read our docs <span aria-hidden="true">&rarr;</span></a>
           </p>
         </div>
       </div>

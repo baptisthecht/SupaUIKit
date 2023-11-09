@@ -32,9 +32,9 @@
                 <li class="p-2">
                   <h2 v-if="query === ''" class="mb-2 mt-4 px-3 text-xs font-semibold text-gray-900">Recent searches</h2>
                   <ul class="text-sm text-gray-700">
-                    <ComboboxOption v-for="project in query === '' ? recent : filteredProjects" :key="project.id" :value="project" as="template" v-slot="{ active }">
+                    <ComboboxOption v-for="(project, i) in query === '' ? recent : filteredProjects" :key="i" :value="project" as="template" v-slot="{ active }">
                       <li :class="['flex cursor-default select-none items-center rounded-md px-3 py-2', active && 'bg-gray-900 bg-opacity-5 text-gray-900']">
-                        <FolderIcon :class="['h-6 w-6 flex-none text-gray-900 text-opacity-40', active && 'text-opacity-100']" aria-hidden="true" />
+                        <CodeBracketIcon :class="['h-6 w-6 flex-none text-gray-900 text-opacity-40', active && 'text-opacity-100']" aria-hidden="true" />
                         <span class="ml-3 flex-auto truncate">{{ project.name }}</span>
                         <span v-if="active" class="ml-3 flex-none text-gray-500">Jump to...</span>
                       </li>
@@ -59,8 +59,8 @@
               </ComboboxOptions>
 
               <div v-if="query !== '' && filteredProjects.length === 0" class="px-6 py-14 text-center sm:px-14">
-                <FolderIcon class="mx-auto h-6 w-6 text-gray-900 text-opacity-40" aria-hidden="true" />
-                <p class="mt-4 text-sm text-gray-900">We couldn't find any projects with that term. Please try again.</p>
+                <CodeBracketIcon class="mx-auto h-6 w-6 text-gray-900 text-opacity-40" aria-hidden="true" />
+                <p class="mt-4 text-sm text-gray-900">We couldn't find any components with that term. Please try again.</p>
               </div>
             </Combobox>
           </DialogPanel>
@@ -74,7 +74,8 @@
 import { computed, ref } from 'vue'
 import { useStore } from 'vuex'
 import { MagnifyingGlassIcon } from '@heroicons/vue/20/solid'
-import { DocumentPlusIcon, FolderIcon, FolderPlusIcon, HashtagIcon, TagIcon } from '@heroicons/vue/24/outline'
+import { DocumentTextIcon, TagIcon, CodeBracketIcon, CubeIcon } from '@heroicons/vue/24/outline'
+import BDD from '../bdd.js';
 import {
   Combobox,
   ComboboxInput,
@@ -88,20 +89,24 @@ import {
 
 const store = useStore()
 
-const projects = [
-  { id: 1, name: 'Workflow Inc. / Website Redesign', url: '#' },
-  { id: 2, name: 'Rylco App / Component Sharing', url: '#' },
-  { id: 3, name: 'Autostar Brand / Logo & Identity', url: '#' },
-  { id: 4, name: 'SaaS Design System / Documentation', url: '#' },
-  { id: 5, name: 'Marketing Pages / Landing Pages', url: '#' },
-  // More projects...
-]
-const recent = [projects[0]]
+let data_components = ref([]);
+
+for(const category of BDD){
+  for(let i = 0; i < category.components.length; i++){
+    const component = category.components[i];
+    component.idincategory = i;
+    data_components.value.push(component);
+  }
+}
+
+
+const projects = data_components.value;
+
+
 const quickActions = [
-  { name: 'Add new file...', icon: DocumentPlusIcon, shortcut: 'N', url: '#' },
-  { name: 'Add new folder...', icon: FolderPlusIcon, shortcut: 'F', url: '#' },
-  { name: 'Add hashtag...', icon: HashtagIcon, shortcut: 'H', url: '#' },
-  { name: 'Add label...', icon: TagIcon, shortcut: 'L', url: '#' },
+  { name: 'See docs...', icon: DocumentTextIcon, shortcut: 'N', url: '/docs' },
+  { name: 'Browse templates...', icon: CubeIcon, shortcut: 'F', url: '/templates' },
+  { name: 'Browse categories...', icon: TagIcon, shortcut: 'L', url: '/components' },
 ]
 
 const open = computed(() => store.state.searchModalVisible)
@@ -114,8 +119,41 @@ const filteredProjects = computed(() =>
       })
 )
 
+
+
+const saveRecentSearches = (recents) => {
+  localStorage.setItem('recentSearches', JSON.stringify(recents));
+};
+
+const loadRecentSearches = () => {
+  const recentSearchesJSON = localStorage.getItem('recentSearches');
+  if (recentSearchesJSON) {
+    return JSON.parse(recentSearchesJSON);
+  } else {
+    return [{
+        name: 'Primary Button',
+        category: 'Buttons',
+        codeReact: '<Button variant="primary">Primary</Button>',
+        codeVue: '<Button variant="primary">Primary</Button>',
+        codeHtml: '<button class="bg-gradient1 w-max px-6 py-2 rounded-lg font-medium text-white flex items-center transition ease-in-out duration-300 text-lg">Log in</button>',
+        codeAngular: '<button class="btn btn-primary">Primary</button>',
+      }];
+  }
+};
+
+const recent = ref([]);
+recent.value = loadRecentSearches();
+
 function onSelect(item) {
-  window.location = item.url
+  recent.value = [item, ...recent.value.filter((comp) => comp.idincategory !== item.idincategory || comp.category !== item.category).slice(0, 2)]
+  saveRecentSearches(recent.value);
+  if(!item.url){
+    const url = '/'+item.category+'#'+'comp'+item.idincategory;
+    window.location = url
+  }else{
+    window.location = item.url
+  }
+
 }
 
 const closeSearchModal = () => {

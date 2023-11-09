@@ -8,24 +8,30 @@
             <h1 class="text-4xl font-medium tracking-tight text-darker">Moderns, cleans and supa <br/>customizables components.</h1>
             <div class="flex flex-col lg:flex-row gap-8 lg:w-[900px]">
                 <div  class="w-full lg:w-1/3 bg-white rounded-2xl p-8 whitespace-nowrap" style="box-shadow: 0px 12px 64px rgba(130, 115, 238, 0.1)">
-                    <div class="h-8 w-8 rounded-full bg-gradient-to-r from-gradient1 to-gradient2 mb-3 text-white flex items-center justify-center font-bold">M</div>
-                    <h1 class="text-2xl font-semibold text-gradient1">Multi-framework</h1>
+                    <div class="h-8 w-8 rounded-full bg-[#EFE2F9] mb-3 text-[#9251F7] flex items-center justify-center font-bold">M</div>
+                    <h1 class="text-2xl font-semibold text-[#9251F7]">Multi-framework</h1>
                 </div>
                 <div  class="w-full lg:w-1/3 bg-white rounded-2xl p-8 whitespace-nowrap pr-10" style="box-shadow: 0px 12px 64px rgba(130, 115, 238, 0.1)">
-                    <div class="h-8 w-8 rounded-full bg-gradient-to-r from-gradient1 to-gradient2 mb-3 text-white flex items-center justify-center font-bold">+</div>
-                    <h1 class="text-2xl font-semibold text-gradient1">+300 Components</h1>
+                    <div class="h-8 w-8 rounded-full bg-[#E7FAE5] mb-3 text-[#4AC06F] flex items-center justify-center font-bold">+</div>
+                    <h1 class="text-2xl font-semibold text-[#4AC06F]">+300 Components</h1>
                 </div>
                 <div  class="w-full lg:w-1/3 bg-white rounded-2xl p-8 whitespace-nowrap" style="box-shadow: 0px 12px 64px rgba(130, 115, 238, 0.1)">
-                    <div class="h-8 w-8 rounded-full bg-gradient-to-r from-gradient1 to-gradient2 mb-3 text-white flex items-center justify-center font-bold">&</div>
-                    <h1 class="text-2xl font-semibold text-gradient1">Light & Dark</h1>
+                    <div class="h-8 w-8 rounded-full bg-[#FEFCBF] mb-3 text-[#F4CE10] flex items-center justify-center font-bold"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-5 h-5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.383a14.406 14.406 0 01-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 10-7.517 0c.85.493 1.509 1.333 1.509 2.316V18" />
+                      </svg>
+                      </div>
+                    <h1 class="text-2xl font-semibold text-gradient1"><span class="text-[#F4CE10]">Light</span> <span class="text-[#79819A]">&</span> <span class="text-[#857129]">Dark</span></h1>
                 </div>
             </div>
             <div class="flex items-center justify-center sm:justify-start gap-8">
-            <button class="bg-gradient-to-r from-gradient2 to-gradient1 w-max px-6 py-2 rounded-lg font-medium text-white flex items-center transition ease-in-out duration-300 text-lg shadowbutton ">Explore
-            </button>  
-            <a href="/docs" class="font-medium text-lg flex items-center gap-3 text-darker">Read the docs <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" class="w-4 h-4">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-              </svg></a>
+            <a href="/components" class="bg-gradient-to-r from-gradient2 to-gradient1 w-max px-6 py-2 rounded-lg font-medium text-white flex items-center transition ease-in-out duration-300 text-lg shadowbutton ">Explore
+            </a>  
+            <a href="/docs" class="font-medium text-lg flex items-center gap-3 text-darker group">
+                Read the docs 
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" class="w-4 h-4 -translate-x-3 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition ease-in-out duration-100">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                </svg>
+            </a>
             </div>
 
             
