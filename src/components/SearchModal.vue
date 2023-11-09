@@ -25,7 +25,11 @@
             <Combobox @update:modelValue="onSelect">
               <div class="relative">
                 <MagnifyingGlassIcon class="pointer-events-none absolute left-4 top-3.5 h-5 w-5 text-gray-900 text-opacity-40" aria-hidden="true" />
-                <ComboboxInput class="h-12 w-full border-0 bg-transparent pl-11 pr-4 text-gray-900 focus:ring-0 sm:text-sm" placeholder="Search..." @change="query = $event.target.value" />
+                <ComboboxInput class="relative h-12 w-full border-0 bg-transparent pl-11 pr-4 text-gray-900 focus:ring-0 sm:text-sm" placeholder="Search..." @change="query = $event.target.value" />
+                <span class="absolute right-5 top-4 ml-3 flex-none text-xs font-semibold text-gray-500">
+                  <kbd class="font-sans">⌘</kbd>
+                  <kbd class="font-sans">S</kbd>
+                </span>
               </div>
 
               <ComboboxOptions v-if="query === '' || filteredProjects.length > 0" static class="max-h-80 scroll-py-2 divide-y divide-gray-500 divide-opacity-10 overflow-y-auto">
@@ -104,9 +108,9 @@ const projects = data_components.value;
 
 
 const quickActions = [
-  { name: 'See docs...', icon: DocumentTextIcon, shortcut: 'N', url: '/docs' },
-  { name: 'Browse templates...', icon: CubeIcon, shortcut: 'F', url: '/templates' },
-  { name: 'Browse categories...', icon: TagIcon, shortcut: 'L', url: '/components' },
+  { name: 'See docs...', icon: DocumentTextIcon, shortcut: 'D', url: '/docs' },
+  { name: 'Browse templates...', icon: CubeIcon, shortcut: 'E', url: '/templates' },
+  { name: 'Browse categories...', icon: TagIcon, shortcut: 'F', url: '/components' },
 ]
 
 const open = computed(() => store.state.searchModalVisible)
@@ -159,5 +163,28 @@ function onSelect(item) {
 const closeSearchModal = () => {
   store.commit('closeSearchModal')
 }
+
+document.onkeydown = function(e) {
+    if (e.key === "d" && (e.ctrlKey || e.metaKey)) {
+        e.preventDefault(); 
+        window.location = '/docs'
+    }
+    if (e.key === "e" && (e.ctrlKey || e.metaKey)) {
+        e.preventDefault(); 
+        window.location = '/templates'
+    }
+    if (e.key === "f" && (e.ctrlKey || e.metaKey)) {
+        e.preventDefault(); 
+        window.location = '/components'
+    }
+    if (e.key === "s" && (e.ctrlKey || e.metaKey)) {
+        e.preventDefault(); 
+        if(store.state.searchModalVisible){
+          store.commit('closeSearchModal')
+        }else{
+        store.commit('showSearchModal')
+    }
+  }
+};
 
 </script>

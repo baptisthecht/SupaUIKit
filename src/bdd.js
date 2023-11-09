@@ -83,6 +83,19 @@ const components = [
         codeAngular: '<button class="btn btn-primary">Primary</button>',
       },
       {
+        name: 'Secondary Button with hover sliding arrow',
+        category: 'Buttons',
+        codeReact: '<Button variant="primary">Primary</Button>',
+        codeVue: '<Button variant="primary">Primary</Button>',
+        codeHtml: `<a href="/docs" class="font-medium text-lg flex items-center gap-3 text-darker group">
+        See more 
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" class="w-4 h-4 -translate-x-3 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition ease-in-out duration-100">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+        </svg>
+    </a>`,
+        codeAngular: '<button class="btn btn-primary">Primary</button>',
+      },
+      {
         name: 'Primary & Secondary group with icons',
         category: 'Buttons',
         codeReact: '<Button variant="primary">Primary</Button>',
