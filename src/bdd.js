@@ -6,10 +6,37 @@ const components = [
       {
         name: 'Primary Button',
         category: 'Buttons',
-        codeReact: '<Button variant="primary">Primary</Button>',
-        codeVue: '<Button variant="primary">Primary</Button>',
-        codeHtml: '<button class="bg-gradient1 w-max px-6 py-2 rounded-lg font-medium text-white flex items-center transition ease-in-out duration-300 text-lg">Log in</button>',
-        codeAngular: '<button class="btn btn-primary">Primary</button>',
+        codeReact: `import React from 'react';
+
+const PrimaryButton = () => {
+  return (
+    <button className="bg-gradient1 w-max px-6 py-2 rounded-lg font-medium text-white flex items-center transition ease-in-out duration-300 text-lg">
+      Log in
+    </button>
+  );
+}
+
+export default PrimaryButton;`,
+        codeVue: `<template>
+  <button class="bg-gradient1 w-max px-6 py-2 rounded-lg font-medium text-white flex items-center transition ease-in-out duration-300 text-lg">
+    Log in
+  </button>
+</template>
+
+<script>
+export default {
+  name: 'PrimaryButton',
+};
+</script>
+
+<style scoped>
+</style>`,
+        codeHtml: `<button class="bg-gradient1 w-max px-6 py-2 rounded-lg font-medium text-white flex items-center transition ease-in-out duration-300 text-lg">
+  Log in
+</button>`,
+        codeAngular: `<button class="bg-gradient1 w-max px-6 py-2 rounded-lg font-medium text-white flex items-center transition ease-in-out duration-300 text-lg">
+  Log in
+</button>`,
       },
       {
         name: 'Secondary Button',

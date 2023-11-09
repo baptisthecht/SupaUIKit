@@ -30,15 +30,15 @@
                     </div>
                     <div class="ml-6 mr-3 hidden h-5 w-px bg-slate-900/10 sm:block"></div>
                     <div class="relative hidden sm:block">
-                        <select class="form-select h-9 w-full rounded-lg border-0 bg-transparent bg-none p-0 pl-3.5 pr-[1.875rem] font-medium text-darker focus:shadow-none focus-visible:ring-2 focus-visible:ring-gradient1 sm:text-sm">
+                        <select @change="$event => changeComponentLanguage($event.target.value, index)" class="form-select h-9 w-full rounded-lg border-0 bg-transparent bg-none p-0 pl-3.5 pr-[1.875rem] font-medium text-darker focus:shadow-none focus-visible:ring-2 focus-visible:ring-gradient1 sm:text-sm">
                             <option value="html">HTML</option>
                             <option value="react">React</option>
                             <option value="vue">Vue</option>
-                            <option value="vue">Angular</option>
+                            <option value="angular">Angular</option>
                         </select>
                     </div>
-                    <button class="group relative ml-2 hidden h-9 w-9 items-center justify-center sm:flex">
-                        <svg class="h-8 w-8 stroke-slate-400 transition group-hover:rotate-[-4deg] group-hover:stroke-darker" fill="none" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <button @click="copyToClipboard(component, index)" class="group transition ease-in-out duration-200 relative ml-2 hidden h-9 w-9 items-center justify-center sm:flex">
+                        <svg :class="componentCopy[index] === true ? 'hidden' : '' " class="translate-y-0 h-8 w-8 stroke-slate-400 transition group-hover:rotate-[-4deg] group-hover:stroke-darker" fill="none" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M12.9975 10.7499L11.7475 10.7499C10.6429 10.7499 9.74747 11.6453 9.74747 12.7499L9.74747 21.2499C9.74747 22.3544 10.6429 23.2499 11.7475 23.2499L20.2475 23.2499C21.352 23.2499 22.2475 22.3544 22.2475 21.2499L22.2475 12.7499C22.2475 11.6453 21.352 10.7499 20.2475 10.7499L18.9975 10.7499" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
                             <path d="M17.9975 12.2499L13.9975 12.2499C13.4452 12.2499 12.9975 11.8022 12.9975 11.2499L12.9975 9.74988C12.9975 9.19759 13.4452 8.74988 13.9975 8.74988L17.9975 8.74988C18.5498 8.74988 18.9975 9.19759 18.9975 9.74988L18.9975 11.2499C18.9975 11.8022 18.5498 12.2499 17.9975 12.2499Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
                             <path d="M13.7475 16.2499L18.2475 16.2499" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M13.7475 19.2499L18.2475 19.2499" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
@@ -48,15 +48,27 @@
                                 <path d="M11.9975 5.99988L10.9975 4.99988" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
                             </g>
                         </svg>
+                        <svg :class="componentCopy[index] === false ? 'hidden ' : '' " class="h-8 w-8 rotate-[-8deg] stroke-gradient1" fill="none" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12.9975 10.7499L11.7475 10.7499C10.6429 10.7499 9.74747 11.6453 9.74747 12.7499L9.74747 21.2499C9.74747 22.3544 10.6429 23.2499 11.7475 23.2499L20.2475 23.2499C21.352 23.2499 22.2475 22.3544 22.2475 21.2499L22.2475 12.7499C22.2475 11.6453 21.352 10.7499 20.2475 10.7499L18.9975 10.7499" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M17.9975 12.2499L13.9975 12.2499C13.4452 12.2499 12.9975 11.8022 12.9975 11.2499L12.9975 9.74988C12.9975 9.19759 13.4452 8.74988 13.9975 8.74988L17.9975 8.74988C18.5498 8.74988 18.9975 9.19759 18.9975 9.74988L18.9975 11.2499C18.9975 11.8022 18.5498 12.2499 17.9975 12.2499Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M13.7475 16.2499L18.2475 16.2499" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M13.7475 19.2499L18.2475 19.2499" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><g class=""><path d="M15.9975 5.99988L15.9975 3.99988" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M19.9975 5.99988L20.9975 4.99988" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M11.9975 5.99988L10.9975 4.99988" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></g></svg>
+                        <span  class="absolute inset-x-0 bottom-full mb-2.5 flex justify-center scale-100 translate-y-0 opacity-100"><span class="rounded-md bg-gradient-to-r from-gradient1 to-gradient2 shadowcopied px-3 py-1 text-[0.625rem] font-semibold uppercase leading-4 tracking-wide text-white drop-shadow-md filter transition ease-in-out duration-200" :class="componentCopy[index] === false ? 'translate-y-2 opacity-0' : '' "><svg aria-hidden="true" width="16" height="6" viewBox="0 0 16 6" class="absolute left-1/2 top-full -ml-2 -mt-px text-gradient1"><path fill-rule="evenodd" clip-rule="evenodd" d="M15 0H1V1.00366V1.00366V1.00371H1.01672C2.72058 1.0147 4.24225 2.74704 5.42685 4.72928C6.42941 6.40691 9.57154 6.4069 10.5741 4.72926C11.7587 2.74703 13.2803 1.0147 14.9841 1.00371H15V0Z" fill="currentColor"></path></svg>Copied!</span></span>
                     </button>
                 </div>
             </div>  
             <div v-if="componentStatus[index] === 'preview'" class="h-64 bg-white backdrop-blur backdrop-filter rounded-xl m-2 flex flex-col justify-center items-center cursor-auto" style="box-shadow: 0px 12px 64px rgba(130, 115, 238, 0.15); --tw-bg-opacity: 0.6;">
                 <div v-html="component.codeHtml"></div>
             </div>
-            <div v-if="componentStatus[index] === 'code'" class="h-content p-0.5 bg-[#202c3c] rounded-xl m-2" style="box-shadow: 0px 12px 64px rgba(130, 115, 238, 0.15);">
+            <div v-if="componentStatus[index] === 'code' && componentLanguage[index] === 'html'" class="h-content p-0.5 bg-[#202c3c] rounded-xl m-2" style="box-shadow: 0px 12px 64px rgba(130, 115, 238, 0.15);">
                 <highlightjs id="code"  language='javascript' :code="component.codeHtml" class="ml-5 max-w-[1300px] overflow-auto my-5" />
             </div>
+            <div v-if="componentStatus[index] === 'code' && componentLanguage[index] === 'vue'" class="h-content p-0.5 bg-[#202c3c] rounded-xl m-2" style="box-shadow: 0px 12px 64px rgba(130, 115, 238, 0.15);">
+                <highlightjs id="code"  language='javascript' :code="component.codeVue" class="ml-5 max-w-[1300px] overflow-auto my-5" />
+            </div>
+            <div v-if="componentStatus[index] === 'code' && componentLanguage[index] === 'react'" class="h-content p-0.5 bg-[#202c3c] rounded-xl m-2" style="box-shadow: 0px 12px 64px rgba(130, 115, 238, 0.15);">
+                <highlightjs id="code"  language='javascript' :code="component.codeReact" class="ml-5 max-w-[1300px] overflow-auto my-5" />
+            </div>
+            <div v-if="componentStatus[index] === 'code' && componentLanguage[index] === 'angular'" class="h-content p-0.5 bg-[#202c3c] rounded-xl m-2" style="box-shadow: 0px 12px 64px rgba(130, 115, 238, 0.15);">
+                <highlightjs id="code"  language='javascript' :code="component.codeAngular" class="ml-5 max-w-[1300px] overflow-auto my-5" />
+            </div>
+
           </div> 
     </div>
   </div> 
@@ -83,15 +95,46 @@ export default {
         const cat = BDD.find((cat) => cat.categoryName === route.params.name);
 
         const componentStatus = ref(cat.components.map(() => 'preview'));
+        const componentCopy = ref(cat.components.map(() => false));
+        const componentLanguage = ref(cat.components.map(() => 'html'));
+
         return {
             cat,
             componentStatus,
-            hljs
+            hljs,
+            componentCopy,
+            componentLanguage
         }
     },
     methods: {
         selectTab(tab, index) {
             this.componentStatus[index] = tab;
+        },
+        copyToClipboard(component, index) {
+            switch(this.componentLanguage[index]){
+                case 'html':
+                    navigator.clipboard.writeText(component.codeHtml);
+                    break;
+                case 'vue':
+                    navigator.clipboard.writeText(component.codeVue);
+                    break;
+                case 'react':
+                    navigator.clipboard.writeText(component.codeReact);
+                    break;
+                case 'angular':
+                    navigator.clipboard.writeText(component.codeAngular);
+                    break;
+                default:
+                    navigator.clipboard.writeText(component.codeHtml);
+                    break;
+            }
+            this.componentCopy[index] = true;
+            setTimeout(() => {
+                this.componentCopy[index] = false;
+            }, 2000);
+        },
+        changeComponentLanguage(language, index) {
+            this.componentLanguage[index] = language;
         }
     }
 }
