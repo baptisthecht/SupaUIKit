@@ -136,6 +136,7 @@ const loadRecentSearches = () => {
   } else {
     return [{
         name: 'Primary Button',
+        idincategory: 1,
         category: 'Buttons',
         codeReact: '<Button variant="primary">Primary</Button>',
         codeVue: '<Button variant="primary">Primary</Button>',
