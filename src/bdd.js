@@ -1,6 +1,7 @@
 const components = [
   {
     categoryName: 'Buttons',
+    previewId: 11,
     soon: false,
     components: [
       {
@@ -591,47 +592,9 @@ export default {
       ,
     ]
   },
-  {
-    categoryName: 'Cards',
-    soon: true,
-    components: [
-      {
-        name: 'Primary Button',
-        category: 'Buttons',
-        codeReact: '<Button variant="primary">Primary</Button>',
-        codeVue: '<Button variant="primary">Primary</Button>',
-        codeHtml: '<button style="border: 1px solid blue">Primary</button>',
-        codeAngular: '<button class="btn btn-primary">Primary</button>',
-      },
-      {
-        name: 'Secondary Button',
-        category: 'Buttons',
-        codeReact: '<Button variant="primary">Primary</Button>',
-        codeVue: '<Button variant="primary">Primary</Button>',
-        codeHtml: '<button class="btn btn-primary">Primary</button>',
-        codeAngular: '<button class="btn btn-primary">Primary</button>',
-      },
-      {
-        name: 'Primary CTA',
-        category: 'Buttons',
-        codeReact: '<Button variant="primary">Primary</Button>',
-        codeVue: '<Button variant="primary">Primary</Button>',
-        codeHtml: '<button class="btn btn-primary">Primary</button>',
-       
-
-        },
-        {
-          name: 'Secondary CTA',
-          category: 'Buttons',
-          codeReact: '<Button variant="primary">Primary</Button>',
-          codeVue: '<Button variant="primary">Primary</Button>',
-          codeHtml: '<button class="btn btn-primary">Primary</button>',
-          codeAngular: '<button class="btn btn-primary">Primary</button>',
-        },
-      ]
-    },
     {
       categoryName: 'Text Inputs',
+      previewId: 2,
       soon: false,
       components: [
         {
@@ -946,13 +909,14 @@ export default {
 const TextInputWithPrefix = (label, prefix) => {
   return (
     <div class="relative flex flex-col items-start gap-2">
-      <label for="input" class="pl-2 text-sm font-medium text-gradient1">{{label}}</label>
+      <label for="input" class="pl-2 text-sm font-medium text-gradient1">GitHub Profile</label>
       <input
         type="text"
         name="input"
-        class="border-2 border-gradient1 py-2 px-4 pl-48 rounded-lg text-gradient1"
+        class="border-2 border-gradient1 py-2 px-4 sm:pl-48 rounded-lg text-gradient1 placeholder:text-gradient1-disabled sm:placeholder:text-opacity-0"
+        placeholder="{{prefix}}..."
       />
-      <p class="absolute w-5 h-5 text-gradient1 left-4 top-[2.35rem]" >{{prefix}}</p>
+      <p class="hidden sm:block absolute w-5 h-5 text-gradient1 left-4 top-[2.35rem]" >https://www.github.com/</p>
     </div>
   );
 };
@@ -960,13 +924,14 @@ const TextInputWithPrefix = (label, prefix) => {
 export default TextInputWithPrefix;`,
           codeVue: `<template>
   <div class="relative flex flex-col items-start gap-2">
-    <label for="input" class="pl-2 text-sm font-medium text-gradient1">{{label}}</label>
+    <label for="input" class="pl-2 text-sm font-medium text-gradient1">GitHub Profile</label>
     <input
       type="text"
       name="input"
-      class="border-2 border-gradient1 py-2 px-4 pl-48 rounded-lg text-gradient1"
+      class="border-2 border-gradient1 py-2 px-4 sm:pl-48 rounded-lg text-gradient1 placeholder:text-gradient1-disabled sm:placeholder:text-opacity-0"
+      placeholder="{{prefix}}..."
     />
-    <p class="absolute w-5 h-5 text-gradient1 left-4 top-[2.35rem]" >{{prefix}}</p>
+    <p class="hidden sm:block absolute w-5 h-5 text-gradient1 left-4 top-[2.35rem]" >https://www.github.com/</p>
   </div>
 </template>
 
@@ -984,18 +949,20 @@ export default {
   <input
     type="text"
     name="input"
-    class="border-2 border-gradient1 py-2 px-4 pl-48 rounded-lg text-gradient1"
+    class="border-2 border-gradient1 py-2 px-4 sm:pl-48 rounded-lg text-gradient1 placeholder:text-gradient1-disabled sm:placeholder:text-opacity-0"
+    placeholder="https://www.github.com/example"
   />
-  <p class="absolute w-5 h-5 text-gradient1 left-4 top-[2.35rem]" >https://www.github.com/</p>
+  <p class="hidden sm:block absolute w-5 h-5 text-gradient1 left-4 top-[2.35rem]" >https://www.github.com/</p>
 </div>`,
           codeAngular: `<div class="relative flex flex-col items-start gap-2">
 <label for="input" class="pl-2 text-sm font-medium text-gradient1">GitHub Profile</label>
 <input
   type="text"
   name="input"
-  class="border-2 border-gradient1 py-2 px-4 pl-48 rounded-lg text-gradient1"
+  class="border-2 border-gradient1 py-2 px-4 sm:pl-48 rounded-lg text-gradient1 placeholder:text-gradient1-disabled sm:placeholder:text-opacity-0"
+  placeholder="https://www.github.com/example"
 />
-<p class="absolute w-5 h-5 text-gradient1 left-4 top-[2.35rem]" >https://www.github.com/</p>
+<p class="hidden sm:block absolute w-5 h-5 text-gradient1 left-4 top-[2.35rem]" >https://www.github.com/</p>
 </div>`,
         },
         {

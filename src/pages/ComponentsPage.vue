@@ -5,8 +5,8 @@
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
       <div v-for="(category, index) in data_category" :key="index" class="m-4 rounded-2xl  hover:bg-white/60 cursor-pointer">
         <router-link v-if="category.soon == false" :to="{ name: 'ComponentCategoryPage', params: { name: category.name } }">
-          <div class="h-64 bg-white rounded-xl m-2 flex flex-col justify-center items-center" style="box-shadow: 0px 12px 64px rgba(130, 115, 238, 0.2)">
-            <div v-html="category.components[0].codeHtml"></div>
+          <div class="h-64 bg-white backdrop-blur backdrop-filter rounded-xl m-2 flex flex-col justify-center items-center" style="box-shadow: 0px 12px 64px rgba(130, 115, 238, 0.2); --tw-bg-opacity: 0.6;">
+            <div v-html="category.components[category.previewId].codeHtml"></div>
           </div>
           <div class="text-lg font-medium text-darker flex justify-between items-center my-3 mx-5">
             <span>{{ category.name }}</span>
@@ -14,7 +14,7 @@
           </div>        
         </router-link>
         <div v-if="category.soon == true">
-          <div class="h-64 bg-white rounded-xl m-2 flex flex-col justify-center items-center" style="box-shadow: 0px 12px 64px rgba(130, 115, 238, 0.2)">
+          <div class="h-64 bg-white backdrop-blur backdrop-filter rounded-xl m-2 flex flex-col justify-center items-center" style="box-shadow: 0px 12px 64px rgba(130, 115, 238, 0.2); --tw-bg-opacity: 0.6;">
             <div>Soon...</div>
           </div>
           <div class="text-lg font-medium text-darker flex justify-between items-center my-3 mx-5">
@@ -43,16 +43,17 @@ export default {
     },
     setup(){
       class Category {
-        constructor(categoryName, components, soon){
+        constructor(categoryName, components, soon, previewId = 0){
           this.name = categoryName;
           this.soon = soon;
           this.components = components;
+          this.previewId = previewId;
         }
       }
 
       let data_category = ref([]);
       for(const category of BDD){
-        const new_category = new Category(category.categoryName, category.components, category.soon);
+        const new_category = new Category(category.categoryName, category.components, category.soon, category.previewId);
         data_category.value.push(new_category);
       }
 
