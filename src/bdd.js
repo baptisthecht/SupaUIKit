@@ -631,41 +631,453 @@ export default {
       ]
     },
     {
-      categoryName: 'Inputs',
-      soon: true,
+      categoryName: 'Text Inputs',
+      soon: false,
       components: [
         {
-          name: 'Primary Button',
+          name: 'Simple text imput',
           category: 'Buttons',
-          codeReact: '<Button variant="primary">Primary</Button>',
-          codeVue: '<Button variant="primary">Primary</Button>',
-          codeHtml: '<button class="btn btn-primary">Primary</button>',
-          codeAngular: '<button class="btn btn-primary">Primary</button>',
+          codeReact: `import React from 'react';
+
+const SimpleInput = (placeholder) => {
+  return (
+    <input
+      type="text"
+      className="border-2 border-gradient1 py-2 px-4 rounded-lg placeholder:text-gradient1-disabled"
+      placeholder="{{placeholder}}"
+    />
+  );
+};
+
+export default SimpleInput;`,
+          codeVue: `<template>
+  <input
+    type="text"
+    class="border-2 border-gradient1 py-2 px-4 rounded-lg placeholder:text-gradient1-disabled"
+    placeholder="{{placeholder}}"
+  />
+</template>
+
+<script>
+export default {
+  name: 'SimpleInput',
+  props: ['placeholder']
+};
+</script>
+
+<style scoped>
+</style>`,
+          codeHtml: `<input
+  type="text"
+  class="border-2 border-gradient1 py-2 px-4 rounded-lg placeholder:text-gradient1-disabled"
+  placeholder="Your text here..."
+/>`,
+          codeAngular: `<input
+  type="text"
+  class="border-2 border-gradient1 py-2 px-4 rounded-lg placeholder:text-gradient1-disabled"
+  placeholder="Your text here..."
+/>`,
         },
         {
-          name: 'Secondary Button',
+          name: 'Simple text imput with label',
           category: 'Buttons',
-          codeReact: '<Button variant="primary">Primary</Button>',
-          codeVue: '<Button variant="primary">Primary</Button>',
-          codeHtml: '<button class="btn btn-primary">Primary</button>',
-          codeAngular: '<button class="btn btn-primary">Primary</button>',
+          codeReact: `import React from 'react';
+
+const TextInputWithLabel = (label, placeholder) => {
+  return (
+    <div class="flex flex-col items-start gap-2">
+      <label for="input" class="pl-2 text-sm font-medium text-gradient1">{{label}}</label>
+      <input
+        type="text"
+        name="input"
+        class="border-2 border-gradient1 py-2 px-4 rounded-lg placeholder:text-gradient1-disabled"
+        placeholder="{{placeholder}}"
+      />
+    </div>
+  );
+};
+
+export default TextInputWithLabel;`,
+          codeVue: `<template>
+  <div class="flex flex-col items-start gap-2">
+    <label for="input" class="pl-2 text-sm font-medium text-gradient1">{{label}}</label>
+    <input
+      type="text"
+      name="input"
+      class="border-2 border-gradient1 py-2 px-4 rounded-lg placeholder:text-gradient1-disabled"
+      placeholder="{{placeholder}}"
+    />
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'TextInputWithLabel',
+  props: ['label', 'placeholder']
+};
+</script>
+
+<style scoped>
+</style>`,
+          codeHtml: `<div class="flex flex-col items-start gap-2">
+  <label for="input" class="pl-2 text-sm font-medium text-gradient1">First name</label>
+  <input
+    type="text"
+    name="input"
+    class="border-2 border-gradient1 py-2 px-4 rounded-lg placeholder:text-gradient1-disabled"
+    placeholder="John"
+  />
+</div>`,
+          codeAngular: `<div class="flex flex-col items-start gap-2">
+<label for="input" class="pl-2 text-sm font-medium text-gradient1">First name</label>
+<input
+  type="text"
+  name="input"
+  class="border-2 border-gradient1 py-2 px-4 rounded-lg placeholder:text-gradient1-disabled"
+  placeholder="John"
+/>
+</div>`,
         },
         {
-          name: 'Primary CTA',
+          name: 'Text imput with label and warning',
           category: 'Buttons',
-          codeReact: '<Button variant="primary">Primary</Button>',
-          codeVue: '<Button variant="primary">Primary</Button>',
-          codeHtml: '<button class="btn btn-primary">Primary</button>',
-          codeAngular: '<button class="btn btn-primary">Primary</button>',
+          codeReact: `import React from 'react';
+
+const TextInputWithLabelAndWarning = (label, placeholder, warningMessage) => {
+  return (
+    <div class="flex flex-col items-start gap-2">
+      <label for="input" class="pl-2 text-sm font-medium text-gradient1">{{label}}</label>
+      <input
+        type="text"
+        name="input"
+        class="border-2 border-gradient1 py-2 px-4 rounded-lg placeholder:text-gradient1-disabled"
+        placeholder="{{placeholder}}"
+      />
+      <p class="pl-2 text-sm text-gradient1">{{warningMessage}}</p>
+    </div>
+  );
+};
+
+export default TextInputWithLabelAndWarning;`,
+          codeVue: `<template>
+  <div class="flex flex-col items-start gap-2">
+    <label for="input" class="pl-2 text-sm font-medium text-gradient1">{{label}}</label>
+    <input
+      type="text"
+      name="input"
+      class="border-2 border-gradient1 py-2 px-4 rounded-lg placeholder:text-gradient1-disabled"
+      placeholder="{{placeholder}}"
+    />
+    <p class="pl-2 text-sm text-gradient1">{{waringMessage}}</p>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'TextInputWithLabelAndWarning',
+  props: ['label', 'placeholder', 'warningMessage']
+};
+</script>
+
+<style scoped>
+</style>`,
+          codeHtml: `<div class="flex flex-col items-start gap-2">
+  <label for="input" class="pl-2 text-sm font-medium text-gradient1">First name</label>
+  <input
+    type="text"
+    name="input"
+    class="border-2 border-gradient1 py-2 px-4 rounded-lg placeholder:text-gradient1-disabled"
+    placeholder="John"
+  />
+  <p class="pl-2 text-sm text-gradient1">This field can't be empty.</p>
+</div>`,
+          codeAngular: `<div class="flex flex-col items-start gap-2">
+<label for="input" class="pl-2 text-sm font-medium text-gradient1">First name</label>
+<input
+  type="text"
+  name="input"
+  class="border-2 border-gradient1 py-2 px-4 rounded-lg placeholder:text-gradient1-disabled"
+  placeholder="John"
+/>
+<p class="pl-2 text-sm text-gradient1">This field can't be empty.</p>
+</div>`,
         },
         {
-          name: 'Secondary CTA',
+          name: 'Text imput with error',
           category: 'Buttons',
-          codeReact: '<Button variant="primary">Primary</Button>',
-          codeVue: '<Button variant="primary">Primary</Button>',
-          codeHtml: '<button class="btn btn-primary">Primary</button>',
-          codeAngular: '<button class="btn btn-primary">Primary</button>',
+          codeReact: `import React from 'react';
+
+const TextInputWithError = (label, placeholder, errorMessage) => {
+  return (
+    <div class="flex flex-col items-start gap-2">
+      <label for="input" class="pl-2 text-sm font-medium text-red-600">{{label}}</label>
+      <input
+        type="text"
+        name="input"
+        class="border-2 border-red-600 py-2 px-4 rounded-lg placeholder:text-red-400"
+        placeholder="{{placeholder}}"
+      />
+      <p class="pl-2 text-sm text-red-600">{{errorMessage}}</p>
+    </div>
+  );
+};
+
+export default TextInputWithError;`,
+          codeVue: `<template>
+  <div class="flex flex-col items-start gap-2">
+    <label for="input" class="pl-2 text-sm font-medium text-red-600">{{label}}</label>
+    <input
+      type="text"
+      name="input"
+      class="border-2 border-red-600 py-2 px-4 rounded-lg placeholder:text-red-400"
+      placeholder="{{placeholder}}"
+    />
+    <p class="pl-2 text-sm text-red-600">{{errorMessage}}</p>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'TextInputWithError',
+  props: ['label', 'placeholder', 'errorMessage']
+};
+</script>
+
+<style scoped>
+</style>`,
+          codeHtml: `<div class="flex flex-col items-start gap-2">
+  <label for="input" class="pl-2 text-sm font-medium text-red-600">Password</label>
+  <input
+    type="text"
+    name="input"
+    class="border-2 border-red-600 py-2 px-4 rounded-lg placeholder:text-red-400"
+    placeholder="********"
+  />
+  <p class="pl-2 text-sm text-red-600">Incorrect password.</p>
+</div>`,
+          codeAngular: `<div class="flex flex-col items-start gap-2">
+<label for="input" class="pl-2 text-sm font-medium text-red-600">Password</label>
+<input
+  type="text"
+  name="input"
+  class="border-2 border-red-600 py-2 px-4 rounded-lg placeholder:text-red-400"
+  placeholder="********"
+/>
+<p class="pl-2 text-sm text-red-600">Incorrect password.</p>
+</div>`,
         },
+        {
+          name: 'Simple text imput with icon',
+          category: 'Buttons',
+          codeReact: `import React from 'react';
+
+const TextInputWithIcon = (label, placeholder) => {
+  return (
+    <div class="relative flex flex-col items-start gap-2">
+      <label for="input" class="pl-2 text-sm font-medium text-gradient1">{{abel}}</label>
+      <input
+        type="text"
+        name="input"
+        class="border-2 border-gradient1 py-2 px-4 pl-12 rounded-lg placeholder:text-gradient1-disabled"
+        placeholder="{{placeholder}}"
+      />
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="absolute w-5 h-5 text-gradient1 left-4 top-10">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 00.75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 00-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0112 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 01-.673-.38m0 0A2.18 2.18 0 013 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 013.413-.387m7.5 0V5.25A2.25 2.25 0 0013.5 3h-3a2.25 2.25 0 00-2.25 2.25v.894m7.5 0a48.667 48.667 0 00-7.5 0M12 12.75h.008v.008H12v-.008z" />
+      </svg>
+    </div>
+  );
+};
+
+export default TextInputWithIcon;`,
+          codeVue: `<template>
+  <div class="relative flex flex-col items-start gap-2">
+    <label for="input" class="pl-2 text-sm font-medium text-gradient1">{{label}}</label>
+    <input
+      type="text"
+      name="input"
+      class="border-2 border-gradient1 py-2 px-4 pl-12 rounded-lg placeholder:text-gradient1-disabled"
+      placeholder="{{placeholder}}"
+    />
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="absolute w-5 h-5 text-gradient1 left-4 top-10">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 00.75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 00-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0112 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 01-.673-.38m0 0A2.18 2.18 0 013 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 013.413-.387m7.5 0V5.25A2.25 2.25 0 0013.5 3h-3a2.25 2.25 0 00-2.25 2.25v.894m7.5 0a48.667 48.667 0 00-7.5 0M12 12.75h.008v.008H12v-.008z" />
+    </svg>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'TextInputWithIcon',
+  props: ['label', 'placeholder']
+};
+</script>
+
+<style scoped>
+</style>`,
+          codeHtml: `<div class="relative flex flex-col items-start gap-2">
+  <label for="input" class="pl-2 text-sm font-medium text-gradient1">School</label>
+  <input
+    type="text"
+    name="input"
+    class="border-2 border-gradient1 py-2 px-4 pl-12 rounded-lg placeholder:text-gradient1-disabled"
+    placeholder="Norwich University"
+  />
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="absolute w-5 h-5 text-gradient1 left-4 top-10">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 00.75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 00-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0112 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 01-.673-.38m0 0A2.18 2.18 0 013 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 013.413-.387m7.5 0V5.25A2.25 2.25 0 0013.5 3h-3a2.25 2.25 0 00-2.25 2.25v.894m7.5 0a48.667 48.667 0 00-7.5 0M12 12.75h.008v.008H12v-.008z" />
+  </svg>
+</div>`,
+          codeAngular: `<div class="relative flex flex-col items-start gap-2">
+  <label for="input" class="pl-2 text-sm font-medium text-gradient1">School</label>
+  <input
+    type="text"
+    name="input"
+    class="border-2 border-gradient1 py-2 px-4 pl-12 rounded-lg placeholder:text-gradient1-disabled"
+    placeholder="Norwich University"
+  />
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="absolute w-5 h-5 text-gradient1 left-4 top-10">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 00.75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 00-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0112 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 01-.673-.38m0 0A2.18 2.18 0 013 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 013.413-.387m7.5 0V5.25A2.25 2.25 0 0013.5 3h-3a2.25 2.25 0 00-2.25 2.25v.894m7.5 0a48.667 48.667 0 00-7.5 0M12 12.75h.008v.008H12v-.008z" />
+  </svg>
+</div>`,
+        },
+        {
+          name: 'Simple text imput with prefix',
+          category: 'Buttons',
+          codeReact: `import React from 'react';
+
+const TextInputWithPrefix = (label, prefix) => {
+  return (
+    <div class="relative flex flex-col items-start gap-2">
+      <label for="input" class="pl-2 text-sm font-medium text-gradient1">{{label}}</label>
+      <input
+        type="text"
+        name="input"
+        class="border-2 border-gradient1 py-2 px-4 pl-48 rounded-lg text-gradient1"
+      />
+      <p class="absolute w-5 h-5 text-gradient1 left-4 top-[2.35rem]" >{{prefix}}</p>
+    </div>
+  );
+};
+
+export default TextInputWithPrefix;`,
+          codeVue: `<template>
+  <div class="relative flex flex-col items-start gap-2">
+    <label for="input" class="pl-2 text-sm font-medium text-gradient1">{{label}}</label>
+    <input
+      type="text"
+      name="input"
+      class="border-2 border-gradient1 py-2 px-4 pl-48 rounded-lg text-gradient1"
+    />
+    <p class="absolute w-5 h-5 text-gradient1 left-4 top-[2.35rem]" >{{prefix}}</p>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'TextInputWithPrefix',
+  props: ['label', 'prefix']
+};
+</script>
+
+<style scoped>
+</style>`,
+          codeHtml: `<div class="relative flex flex-col items-start gap-2">
+  <label for="input" class="pl-2 text-sm font-medium text-gradient1">GitHub Profile</label>
+  <input
+    type="text"
+    name="input"
+    class="border-2 border-gradient1 py-2 px-4 pl-48 rounded-lg text-gradient1"
+  />
+  <p class="absolute w-5 h-5 text-gradient1 left-4 top-[2.35rem]" >https://www.github.com/</p>
+</div>`,
+          codeAngular: `<div class="relative flex flex-col items-start gap-2">
+<label for="input" class="pl-2 text-sm font-medium text-gradient1">GitHub Profile</label>
+<input
+  type="text"
+  name="input"
+  class="border-2 border-gradient1 py-2 px-4 pl-48 rounded-lg text-gradient1"
+/>
+<p class="absolute w-5 h-5 text-gradient1 left-4 top-[2.35rem]" >https://www.github.com/</p>
+</div>`,
+        },
+        {
+          name: 'Simple text imput with select',
+          category: 'Buttons',
+          codeReact: `import React from 'react';
+
+const TextInputWithSelect = (label, placeholder, options) => {
+  return (
+    <div class="relative flex flex-col items-start gap-2">
+      <label for="input" class="pl-2 text-sm font-medium text-gradient1">{{label}}</label>
+      <input
+        type="text"
+        name="input"
+        class="border-2 border-gradient1 py-2 px-4 pl-20 rounded-lg placeholder:text-gradient1-disabled text-gradient1"
+        placeholder="{{placeholder}}"
+      />
+      <select class="absolute text-gradient1 left-4 top-[2.42rem]">
+      {options.map((option) => (
+        <option value={option}>{option}</option>
+      ))}
+      </select>
+    </div>
+  );
+};
+
+export default TextInputWithSelect;`,
+          codeVue: `<template>
+  <div class="relative flex flex-col items-start gap-2">
+    <label for="input" class="pl-2 text-sm font-medium text-gradient1">{{label}}</label>
+    <input
+      type="text"
+      name="input"
+      class="border-2 border-gradient1 py-2 px-4 pl-20 rounded-lg placeholder:text-gradient1-disabled text-gradient1"
+      placeholder="{{placeholder}}"
+    />
+    <select class="absolute text-gradient1 left-4 top-[2.42rem]">
+    {options.map((option) => (
+      <option value={option}>{option}</option>
+    ))}
+    </select>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'TextInputWithSelect',
+  props: ['label', 'placeholder', 'options']
+};
+</script>
+
+<style scoped>
+</style>`,
+          codeHtml: `<div class="relative flex flex-col items-start gap-2">
+  <label for="input" class="pl-2 text-sm font-medium text-gradient1">Phone number</label>
+  <input
+    type="text"
+    name="input"
+    class="border-2 border-gradient1 py-2 px-4 pl-20 rounded-lg placeholder:text-gradient1-disabled text-gradient1"
+    placeholder="6 12 34 56 78"
+  />
+  <select class="absolute text-gradient1 left-4 top-[2.42rem]">
+    <option value="33">+33</option>
+    <option value="32">+32</option>
+    <option value="34">+34</option>
+  </select>
+</div>`,
+        codeAngular: `<div class="relative flex flex-col items-start gap-2">
+  <label for="input" class="pl-2 text-sm font-medium text-gradient1">Phone number</label>
+  <input
+    type="text"
+    name="input"
+    class="border-2 border-gradient1 py-2 px-4 pl-20 rounded-lg placeholder:text-gradient1-disabled text-gradient1"
+    placeholder="6 12 34 56 78"
+  />
+  <select class="absolute text-gradient1 left-4 top-[2.42rem]">
+    <option value="33">+33</option>
+    <option value="32">+32</option>
+    <option value="34">+34</option>
+  </select>
+</div>`,
+      },
       ]
     },
     {

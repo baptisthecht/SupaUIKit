@@ -6,7 +6,7 @@
       <div v-for="(category, index) in data_category" :key="index" class="m-4 rounded-2xl  hover:bg-white/60 cursor-pointer">
         <router-link v-if="category.soon == false" :to="{ name: 'ComponentCategoryPage', params: { name: category.name } }">
           <div class="h-64 bg-white rounded-xl m-2 flex flex-col justify-center items-center" style="box-shadow: 0px 12px 64px rgba(130, 115, 238, 0.2)">
-            <div v-html="category.components[11].codeHtml"></div>
+            <div v-html="category.components[0].codeHtml"></div>
           </div>
           <div class="text-lg font-medium text-darker flex justify-between items-center my-3 mx-5">
             <span>{{ category.name }}</span>
