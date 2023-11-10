@@ -1,6 +1,6 @@
 <template>
   <HeaderComponent/>
-  <div class="flex flex-col p-8 pt-20 mx-auto max-w-[1300px]">
+  <div class="flex flex-col p-8 sm:pt-20 mx-auto max-w-[1300px]">
     <h1 class="font-semibold text-dark text-xl py-8 px-10 flex gap-4 items-center"><a href="/">Home</a><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3.5" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" /></svg><span>Components</span></h1>    
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
       <div v-for="(category, index) in data_category" :key="index" class="m-4 rounded-2xl  hover:bg-white/60 cursor-pointer">

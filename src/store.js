@@ -2,7 +2,7 @@ import { createStore } from 'vuex';
 
 const state = {
   searchModalVisible: false,
-  recentSearches: [],
+  MobileMenuVisibility: false,
 };
 
 const mutations = {
@@ -12,9 +12,9 @@ const mutations = {
   closeSearchModal(state) {
     state.searchModalVisible = false;
   },
-  setRecentsSearches(state, recents) {
-    state.recentSearches = recents;
-  }
+  updateMobileMenuVisibility(state) {
+    state.MobileMenuVisibility = !state.MobileMenuVisibility;
+  },
 };
 
 const store = createStore({

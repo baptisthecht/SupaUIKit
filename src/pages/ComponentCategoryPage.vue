@@ -1,7 +1,8 @@
 <template>
   <HeaderComponent />
-  <div class="flex flex-col p-8 pt-20 mx-auto max-w-[1300px]">
-    <h1 class="font-semibold text-dark text-xl py-8 px-10 flex gap-4 items-center"><a href="/">Home</a><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3.5" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" /></svg><a href="/components">Components</a><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3.5" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" /></svg><span>{{cat.categoryName}}</span></h1>   
+  <div class="flex flex-col p-8 sm:pt-20 mx-auto max-w-[1300px]">
+    <h1 class="font-semibold text-dark text-lg pt-5 mx-8 flex gap-4 items-center"><a href="/">Home</a><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3.5" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" /></svg><a href="/components">Components</a></h1>   
+    <span class="font-semibold text-dark text-3xl pt-3 pb-8 mx-8">{{cat.categoryName}}</span>
     <div class="grid grid-cols-1 ">
         <div v-for="(component, index) in cat.components" :key="index" class="m-4 rounded-xl" :id="'comp' + index">
             <div class="text-lg font-medium text-darker flex justify-between items-center my-3 mx-5">

@@ -361,11 +361,11 @@ export default {
     </svg>
 </a>`,
         codeAngular: `<a href="/docs" class="font-medium text-lg flex items-center gap-3 text-darker group">
-    See more 
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" [attr.stroke-width]="3" [attr.stroke]="'currentColor'" class="w-4 h-4 -translate-x-3 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition ease-in-out duration-100">
-        <path [attr.stroke-linecap]="'round'" [attr.stroke-linejoin]="'round'" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-    </svg>
-</a>`
+        See more 
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" class="w-4 h-4 -translate-x-3 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition ease-in-out duration-100">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+        </svg>
+    </a>`
       }
       ,
       {
@@ -494,7 +494,7 @@ export default {
 
 function SpecialCTAWithIcon() {
   return (
-    <button class="bg-gradient-to-r from-gradient2 to-gradient1 w-max px-6 py-2 rounded-lg font-medium text-white flex items-center gap-3 transition ease-in-out duration-300 text-lg shadowbutton">
+    <button class="bg-gradient-to-r from-gradient2 to-gradient1 w-max px-6 pr-5 py-2 rounded-lg font-medium text-white flex items-center gap-3 transition ease-in-out duration-300 text-lg shadowbutton">
       <span>Buy</span>
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-5 h-5">
         <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"></path>
@@ -505,7 +505,7 @@ function SpecialCTAWithIcon() {
 
 export default SpecialCTAWithIcon;`,
         codeVue: `<template>
-  <button class="bg-gradient-to-r from-gradient2 to-gradient1 w-max px-6 py-2 rounded-lg font-medium text-white flex items-center gap-3 transition ease-in-out duration-300 text-lg shadowbutton">
+  <button class="bg-gradient-to-r from-gradient2 to-gradient1 w-max px-6 pr-5 py-2 rounded-lg font-medium text-white flex items-center gap-3 transition ease-in-out duration-300 text-lg shadowbutton">
     <span>Buy</span>
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-5 h-5">
       <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"></path>
@@ -522,14 +522,14 @@ export default {
 
 <style scoped>
 </style>`,
-        codeHtml: `<button class="bg-gradient-to-r from-gradient2 to-gradient1 w-max px-6 py-2 rounded-lg font-medium text-white flex items-center gap-3 transition ease-in-out duration-300 text-lg shadowbutton">
+        codeHtml: `<button class="bg-gradient-to-r from-gradient2 to-gradient1 w-max px-6 pr-5 py-2 rounded-lg font-medium text-white flex items-center gap-3 transition ease-in-out duration-300 text-lg shadowbutton">
     <span>Buy</span>
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-5 h-5">
       <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z">
       </path>
     </svg>
 </button>`,
-        codeAngular: `<button class="bg-gradient-to-r from-gradient2 to-gradient1 w-max px-6 py-2 rounded-lg font-medium text-white flex items-center gap-3 transition ease-in-out duration-300 text-lg shadowbutton">
+        codeAngular: `<button class="bg-gradient-to-r from-gradient2 to-gradient1 w-max px-6 pr-5 py-2 rounded-lg font-medium text-white flex items-center gap-3 transition ease-in-out duration-300 text-lg shadowbutton">
 <span>Buy</span>
 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-5 h-5">
   <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z">
@@ -544,7 +544,7 @@ export default {
 
 function SpecialCTAWithRotatingIcon() {
   return (
-    <button class="group bg-gradient-to-r from-gradient2 to-gradient1 w-max px-6 py-2 rounded-lg font-medium text-white flex items-center gap-3 transition ease-in-out duration-300 text-lg shadowbutton">
+    <button class="group bg-gradient-to-r from-gradient2 to-gradient1 w-max px-6 pr-5 py-2 rounded-lg font-medium text-white flex items-center gap-3 transition ease-in-out duration-300 text-lg shadowbutton">
       <span>Buy</span>
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-5 h-5 transition ease-in-out duration-300 group-hover:rotate-[-15deg]">
         <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z">
@@ -556,7 +556,7 @@ function SpecialCTAWithRotatingIcon() {
 
 export default SpecialCTAWithRotatingIcon;`,
         codeVue: `<template>
-  <button class="group bg-gradient-to-r from-gradient2 to-gradient1 w-max px-6 py-2 rounded-lg font-medium text-white flex items-center gap-3 transition ease-in-out duration-300 text-lg shadowbutton">
+  <button class="group bg-gradient-to-r from-gradient2 to-gradient1 w-max px-6 pr-5 py-2 rounded-lg font-medium text-white flex items-center gap-3 transition ease-in-out duration-300 text-lg shadowbutton">
     <span>Buy</span>
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-5 h-5 transition ease-in-out duration-300 group-hover:rotate-[-15deg]">
       <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z">
@@ -573,14 +573,14 @@ export default {
 
 <style scoped>
 </style>`,
-        codeHtml: `<button class="group bg-gradient-to-r from-gradient2 to-gradient1 w-max px-6 py-2 rounded-lg font-medium text-white flex items-center gap-3 transition ease-in-out duration-300 text-lg shadowbutton">
+        codeHtml: `<button class="group bg-gradient-to-r from-gradient2 to-gradient1 w-max px-6 pr-5 py-2 rounded-lg font-medium text-white flex items-center gap-3 transition ease-in-out duration-300 text-lg shadowbutton">
   <span>Buy</span>
   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-5 h-5 transition ease-in-out duration-300 group-hover:rotate-[-15deg]">
     <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z">
     </path>
   </svg>
 </button>`,
-        codeAngular: `<button class="group bg-gradient-to-r from-gradient2 to-gradient1 w-max px-6 py-2 rounded-lg font-medium text-white flex items-center gap-3 transition ease-in-out duration-300 text-lg shadowbutton">
+        codeAngular: `<button class="group bg-gradient-to-r from-gradient2 to-gradient1 w-max px-6 pr-5 py-2 rounded-lg font-medium text-white flex items-center gap-3 transition ease-in-out duration-300 text-lg shadowbutton">
   <span>Buy</span>
   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-5 h-5 transition ease-in-out duration-300 group-hover:rotate-[-15deg]">
     <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z">
