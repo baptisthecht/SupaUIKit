@@ -40,7 +40,7 @@
             
         </div>
         <div class="hidden lg:block w-2/5 flex items-center py-20 z-1">
-            <img src="../assets/mockup.jpg" alt="" class="w-[900px] max-w-[1000px] rounded-2xl" style="box-shadow: 0px 24px 64px rgba(0, 0, 0, 0.10)">
+            <img src="../assets/mockup2.jpg" alt="" class="w-[900px] max-w-[1000px] rounded-2xl" style="box-shadow: 0px 24px 64px rgba(0, 0, 0, 0.10)">
         </div>
     </div>
 </template>
