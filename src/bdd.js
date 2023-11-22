@@ -9,10 +9,10 @@ const components = [
         category: 'Buttons',
         codeReact: `import React from 'react';
 
-const PrimaryButton = () => {
+const PrimaryButton = (text) => {
   return (
     <button className="bg-gradient1 w-max px-6 py-2 rounded-lg font-medium text-white flex items-center transition ease-in-out duration-300 text-lg">
-      Log in
+      {{ text }}
     </button>
   );
 }
@@ -20,13 +20,14 @@ const PrimaryButton = () => {
 export default PrimaryButton;`,
         codeVue: `<template>
   <button class="bg-gradient1 w-max px-6 py-2 rounded-lg font-medium text-white flex items-center transition ease-in-out duration-300 text-lg">
-    Log in
+  {{ text }}
   </button>
 </template>
 
 <script>
 export default {
   name: 'PrimaryButton',
+  props: ['text'],
 };
 </script>
 
@@ -44,10 +45,10 @@ export default {
         category: 'Buttons',
         codeReact: `import React from 'react';
         
-const SecondaryButton = () => {
+const SecondaryButton = (text) => {
   return (
     <a className="font-medium text-lg flex items-center gap-3 text-darker">
-      Register
+      {{ text }}
     </a>
   );
 }
@@ -55,13 +56,14 @@ const SecondaryButton = () => {
 export default SecondaryButton;`,
             codeVue: `<template>
   <a class="font-medium text-lg flex items-center gap-3 text-darker">
-    Register
+    {{ text }}
   </a>
 </template>
 
 <script>
 export default {
   name: 'SecondaryButton',
+  props: ['text'],
 };
 </script>
 
@@ -79,14 +81,14 @@ export default {
           category: 'Buttons',
           codeReact: `import React from 'react';
       
-const PrimaryAndSecondaryGroup = () => {
+const PrimaryAndSecondaryGroup = (textprimary, textsecondary) => {
   return (
     <div className="flex gap-5">
       <button className="bg-gradient1 w-max px-6 py-2 rounded-lg font-medium text-white flex items-center transition ease-in-out duration-300 text-lg">
-        Log in
+        {{ textprimary }}
       </button>
       <a className="font-medium text-lg flex items-center gap-3 text-darker">
-        Register
+        {{ textsecondary }}
       </a>
     </div>
   );
@@ -96,17 +98,18 @@ export default PrimaryAndSecondaryGroup;`,
           codeVue: `<template>
   <div class="flex gap-5">
     <button class="bg-gradient1 w-max px-6 py-2 rounded-lg font-medium text-white flex items-center transition ease-in-out duration-300 text-lg">
-      Log in
+      {{ textprimary }}
     </button>
     <a class="font-medium text-lg flex items-center gap-3 text-darker">
-      Register
+      {{ textsecondary }}
     </a>
   </div>
 </template>
       
 <script>
 export default {
-  name: 'PrimaryAndSecondaryGroup';
+  name: 'PrimaryAndSecondaryGroup',
+  props: ['textprimary', 'textsecondary'],
 }
 </script>
 
@@ -131,10 +134,10 @@ export default {
           category: 'Buttons',
           codeReact: `import React from 'react';
       
-const PrimaryButtonWithIcon = () => {
+const PrimaryButtonWithIcon = (text) => {
   return (
     <button className="bg-gradient1 w-max px-6 py-2 pr-4 rounded-lg font-medium text-white flex items-center transition ease-in-out duration-300 text-lg">
-      <div>Add</div>
+      <div>{{ text }}</div>
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" className="w-5 h-5 ml-2">
         <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
       </svg>
@@ -145,7 +148,7 @@ const PrimaryButtonWithIcon = () => {
 export default PrimaryButtonWithIcon;`,
           codeVue: `<template>
   <button class="bg-gradient1 w-max px-6 py-2 pr-4 rounded-lg font-medium text-white flex items-center transition ease-in-out duration-300 text-lg">
-    <div>Add</div>
+    <div>{{ text }}</div>
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" class="w-5 h-5 ml-2">
       <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
     </svg>
@@ -155,6 +158,7 @@ export default PrimaryButtonWithIcon;`,
 <script>
 export default {
   name: 'PrimaryButtonWithIcon',
+  props: ['text'],
 };
 </script>
 
@@ -178,10 +182,10 @@ export default {
           category: 'Buttons',
           codeReact: `import React from 'react';
       
-const PrimaryButtonWithRotatingIcon = () => {
+const PrimaryButtonWithRotatingIcon = (text) => {
   return (
     <button className="group bg-gradient1 w-max px-6 py-2 pr-4 rounded-lg font-medium text-white flex items-center transition ease-in-out duration-300 text-lg">
-      <div>Add</div>
+      <div>{{ text }}</div>
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" className="w-5 h-5 ml-2 transition ease-in-out duration-300 group-hover:rotate-[90deg]">
         <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
       </svg>
@@ -192,7 +196,7 @@ const PrimaryButtonWithRotatingIcon = () => {
 export default PrimaryButtonWithRotatingIcon;`,
           codeVue: `<template>
   <button class="group bg-gradient1 w-max px-6 py-2 pr-4 rounded-lg font-medium text-white flex items-center transition ease-in-out duration-300 text-lg">
-    <div>Add</div>
+    <div>{{ text }}</div>
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" class="w-5 h-5 ml-2 transition ease-in-out duration-300 group-hover:rotate-[90deg]">
       <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
     </svg>
@@ -202,6 +206,7 @@ export default PrimaryButtonWithRotatingIcon;`,
 <script>
 export default {
   name: 'PrimaryButtonWithRotatingIcon',
+  props: ['text'],
 };
 </script>
 
@@ -226,10 +231,10 @@ export default {
     category: 'Buttons',
     codeReact: `import React from 'react';
 
-const SecondaryButtonWithIcon = () => {
+const SecondaryButtonWithIcon = (text) => {
   return (
     <a className="font-medium text-lg flex items-center gap-2 text-darker">
-      Remove
+      {{ text }}
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" className="w-6 h-6">
         <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0">
         </path>
@@ -241,7 +246,7 @@ const SecondaryButtonWithIcon = () => {
 export default SecondaryButtonWithIcon;`,
     codeVue: `<template>
   <a class="font-medium text-lg flex items-center gap-2 text-darker">
-    Remove
+    {{ text }}
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
       <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0">
       </path>
@@ -252,6 +257,7 @@ export default SecondaryButtonWithIcon;`,
 <script>
 export default {
   name: 'SecondaryButtonWithIcon',
+  props: ['text'],
 };
 </script>
 
@@ -277,10 +283,10 @@ export default {
     category: 'Buttons',
     codeReact: `import React from 'react';
 
-const SecondaryButtonWithRotatingIcon = () => {
+const SecondaryButtonWithRotatingIcon = (text) => {
   return (
     <a className="group font-medium text-lg flex items-center gap-2 text-darker">
-      Remove
+      {{ text }}
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" className="w-6 h-6 transition ease-in-out duration-300 group-hover:rotate-[-15deg] ">
         <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0">
         </path>
@@ -292,7 +298,7 @@ const SecondaryButtonWithRotatingIcon = () => {
 export default SecondaryButtonWithRotatingIcon;`,
     codeVue: `<template>
   <a class="group font-medium text-lg flex items-center gap-2 text-darker">
-    Remove
+    {{ text }}
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6 transition ease-in-out duration-300 group-hover:rotate-[-15deg] ">
       <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0">
       </path>
@@ -303,6 +309,7 @@ export default SecondaryButtonWithRotatingIcon;`,
 <script>
 export default {
   name: 'SecondaryButtonWithRotatingIcon',
+  props: ['text'],
 };
 </script>
 
@@ -326,10 +333,10 @@ export default {
         category: 'Buttons',
         codeReact: `import React from 'react';
       
-function SecondaryButton() {
+function SecondaryButton(text) {
   return (
     <a href="/docs" className="font-medium text-lg flex items-center gap-3 text-darker group">
-      See more 
+      {{ text }}
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="3" stroke="currentColor" className="w-4 h-4 -translate-x-3 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition ease-in-out duration-100">
         <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
       </svg>
@@ -340,7 +347,7 @@ function SecondaryButton() {
 export default SecondaryButton;`,
         codeVue: `<template>
   <a href="/docs" class="font-medium text-lg flex items-center gap-3 text-darker group">
-    See more 
+    {{ text }}
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" class="w-4 h-4 -translate-x-3 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition ease-in-out duration-100">
       <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
     </svg>
@@ -349,7 +356,8 @@ export default SecondaryButton;`,
 
 <script>
 export default {
-  name: 'SecondaryButton'
+  name: 'SecondaryButton',
+  props: ['text'],
 }
 </script>
 
@@ -374,17 +382,17 @@ export default {
         category: 'Buttons',
         codeReact: `import React from 'react';
       
-function PrimarySecondaryGroup() {
+function PrimarySecondaryGroupWithIcons(textprimary, textsecondary) {
   return (
     <div className="flex gap-5">
       <button className="bg-gradient1 w-max px-6 py-2 pr-4 rounded-lg font-medium text-white flex items-center transition ease-in-out duration-300 text-lg">
-        <div>Add</div>
+        <div>{{ textprimary }}</div>
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="3" stroke="currentColor" className="w-5 h-5 ml-2">
           <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m6-6H6" />
         </svg>
       </button>
       <a className="font-medium text-lg flex items-center gap-2 text-darker">
-        Remove 
+        {{ textsecondary }} 
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-6 h-6">
           <path strokeLinecap="round" strokeLinejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0">
           </path>
@@ -394,17 +402,17 @@ function PrimarySecondaryGroup() {
   );
 }
 
-export default PrimarySecondaryGroup;`,
+export default PrimarySecondaryGroupWithIcons;`,
         codeVue: `<template>
   <div class="flex gap-5">
     <button class="bg-gradient1 w-max px-6 py-2 pr-4 rounded-lg font-medium text-white flex items-center transition ease-in-out duration-300 text-lg">
-      <div>Add</div>
+      <div>{{ textprimary }}</div>
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" class="w-5 h-5 ml-2">
         <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
       </svg>
     </button>
     <a class="font-medium text-lg flex items-center gap-2 text-darker">
-      Remove 
+      {{ textsecondary }} 
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
         <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0">
         </path>
@@ -415,7 +423,8 @@ export default PrimarySecondaryGroup;`,
 
 <script>
 export default {
-  name: 'PrimarySecondaryGroup'
+  name: 'PrimarySecondaryGroupWithIcons',
+  props: ['textprimary', 'textsecondary'],
 }
 </script>
 
@@ -458,10 +467,10 @@ export default {
         category: 'Buttons',
         codeReact: `import React from 'react';
 
-function SpecialCTA() {
+function SpecialCTA(text) {
   return (
     <button class="bg-gradient-to-r from-gradient2 to-gradient1 w-max px-6 py-2 rounded-lg font-medium text-white flex items-center transition ease-in-out duration-300 text-lg shadowbutton">
-      Explore
+      {{ text }}
     </button>
   );
 }
@@ -469,13 +478,14 @@ function SpecialCTA() {
 export default SpecialCTA;`,
         codeVue: `<template>
   <button class="bg-gradient-to-r from-gradient2 to-gradient1 w-max px-6 py-2 rounded-lg font-medium text-white flex items-center transition ease-in-out duration-300 text-lg shadowbutton">
-    Explore
+    {{ text }}
   </button>
 </template>
 
 <script>
 export default {
   name: 'SpecialCTA',
+  props: ['text'],
 }
 </script>
 
@@ -493,10 +503,10 @@ export default {
         category: 'Buttons',
         codeReact: `import React from 'react';
 
-function SpecialCTAWithIcon() {
+function SpecialCTAWithIcon(text) {
   return (
     <button class="bg-gradient-to-r from-gradient2 to-gradient1 w-max px-6 pr-5 py-2 rounded-lg font-medium text-white flex items-center gap-3 transition ease-in-out duration-300 text-lg shadowbutton">
-      <span>Buy</span>
+      <span>{{ text }}</span>
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-5 h-5">
         <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"></path>
       </svg>
@@ -507,7 +517,7 @@ function SpecialCTAWithIcon() {
 export default SpecialCTAWithIcon;`,
         codeVue: `<template>
   <button class="bg-gradient-to-r from-gradient2 to-gradient1 w-max px-6 pr-5 py-2 rounded-lg font-medium text-white flex items-center gap-3 transition ease-in-out duration-300 text-lg shadowbutton">
-    <span>Buy</span>
+    <span>{{ text }}</span>
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-5 h-5">
       <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"></path>
     </svg>
@@ -518,6 +528,7 @@ export default SpecialCTAWithIcon;`,
 
 export default {
   name: 'SpecialCTAWithIcon',
+  props: ['text'],
 }
 </script>
 
@@ -543,10 +554,10 @@ export default {
         category: 'Buttons',
         codeReact: `import React from 'react';
 
-function SpecialCTAWithRotatingIcon() {
+function SpecialCTAWithRotatingIcon(text) {
   return (
     <button class="group bg-gradient-to-r from-gradient2 to-gradient1 w-max px-6 pr-5 py-2 rounded-lg font-medium text-white flex items-center gap-3 transition ease-in-out duration-300 text-lg shadowbutton">
-      <span>Buy</span>
+      <span>{{ text }}</span>
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-5 h-5 transition ease-in-out duration-300 group-hover:rotate-[-15deg]">
         <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z">
         </path>
@@ -558,7 +569,7 @@ function SpecialCTAWithRotatingIcon() {
 export default SpecialCTAWithRotatingIcon;`,
         codeVue: `<template>
   <button class="group bg-gradient-to-r from-gradient2 to-gradient1 w-max px-6 pr-5 py-2 rounded-lg font-medium text-white flex items-center gap-3 transition ease-in-out duration-300 text-lg shadowbutton">
-    <span>Buy</span>
+    <span>{{ text }}</span>
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-5 h-5 transition ease-in-out duration-300 group-hover:rotate-[-15deg]">
       <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z">
       </path>
@@ -569,6 +580,7 @@ export default SpecialCTAWithRotatingIcon;`,
 <script>
 export default {
   name: 'SpecialCTAWithRotatingIcon',
+  props: ['text'],
 }
 </script>
 
